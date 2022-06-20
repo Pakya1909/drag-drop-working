@@ -1,0 +1,21 @@
+p {
+    font-family: Lato;
+  }
+  
+  .container {
+    padding: 5px;
+    height: auto;
+    width: auto;
+  }
+  
+  .draggable {
+    margin: 5px auto;
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #d8dae7;
+    border: 1px solid #000000;
+    text-align: center;
+    cursor: move;
+  }
+   

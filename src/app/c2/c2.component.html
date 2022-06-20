@@ -1,0 +1,74 @@
+<!-- add/delete tabs starts -->
+<ul class=" pagination nav nav-tabs justify-content-end pagination">
+    <li *ngFor="let tab of tabs; index as idx" class="nav-item" role="presentation">
+        <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="flow" type="button" role="tab"
+            aria-controls="home-tab-pane" aria-selected="true"> Flow {{idx+1}}
+            <button type="button" class="btn-close small" aria-label="Close" (click)="deleteTab(idx)">
+            </button>
+        </button>
+    </li>
+    <button class="btn btn-dark" (click)="addTab()"> ADD </button>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="flow" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div #container class="container" style="background-color: gray;">
+            <div #draggable1 class="draggable">Drag Me</div>
+            <div #draggable2 class="draggable">Drag Me</div>
+            <div #draggable3 class="draggable">Drag Me</div>
+        </div>
+    </div>
+</div>
+
+<!-- add/delete tabs ends -->
+
+
+<!-- off canvas starts -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="right" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasRightLabel">node name should come from C1 component</h3>
+        <button type="button" class="btn-close small" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form class="row g-3" [formGroup]="nodeDetails" (ngSubmit)="getDetails()">
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Name of the filler node</label>
+                <input type="text" class="form-control" id="fillerNodeName" formControlName="fillerNodeName">
+            </div>
+            <div class="col-md-12">
+                <label for="inputState" class="form-label">select anything</label>
+                <select id="inputState" class="form-select" formControlName="selectsome">
+                    <option> Select </option>
+                    <option> name </option>
+                    <option> place </option>
+                    <option> animal </option>
+                    <option> thing </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label> Mode: </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="clear" formControlName="clear">
+                    <label class="form-check-label" for="clear">
+                        Clear
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="append" formControlName="append">
+                    <label class="form-check-label" for="append">
+                        Append
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Number of nodes attached : </label>
+                <input type="text" class="form-control" id="nodeNumber" formControlName="nodeNumber">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger me-2">Cancel</button>
+                <button type="submit" class="btn btn-success me-2">Done</button>
+                <button type="submit" class="btn btn-warning me-2">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- off canvas ends -->
